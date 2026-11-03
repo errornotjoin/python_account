@@ -1,9 +1,9 @@
 import os
-
+NOT_allowed_files = ["Server_keys.env", "account.env"]
 def getting_the_files(Username, master_key):
     user_input = input("Enter the FULL addres of the file:")
     try: 
-        if user_input.lower() == "Server_Keys.env" or user_input.lower() == "account.env":
+        if user_input.lower() in [file.lower() for file in NOT_allowed_files]:
             print("You CAN'T Use that FILE ")
         else:
             with open(user_input, "r") as file:

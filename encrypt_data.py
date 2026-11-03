@@ -104,7 +104,7 @@ def Create_encprty ( encrypt_verson, get_this_key, removemore):
         return encrypt_data, key_name, key_value
     else:
         return encrypt_data, None, key_value
-    return encrypt_data, key_name, key_value
+
 
 def add_account(user, password, encrypt_version):
     encrypt_data, key_name, key_value = Create_encprty(encrypt_version, "ramdom_key", None)
