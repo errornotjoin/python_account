@@ -21,22 +21,23 @@ def decrypt_the_account(username, password, file, master_key):
     
 
     key_value = []
-
+    new_data_valye = []
+    #this will get the data and key from the file
     data_value, key_value  = finding_the_key_and_data(file, master_key)
-
+    #this find that key decrypted value from the key_value list
     encprtyed_data = getting_key(master_key, key_value)
-    print(encprtyed_data)
-    encrypt_value =  encrypt_data.Create_encprty(master_key, "nothing", encprtyed_data[0])
-   # keys = getting_key(correct_master_key,  )
-     #for x in range(len(account_info)):
-     #    account_real.append(encrypt_value[0].decrypt(account_info[x]).strip())
-#
-     #if username == str(account_real[0], "utf-8") and password == str(account_real[1], "utf-8"):
-     #    dashboard.show_dashboard(username, master_key)
-     #else:
-     #    print("There Is No Account With That Username/Password")
-     #    import start
-     #    start.login()
+    #this will create the same evenverment so the key can decrypt the data value
+    key, value, encrypt_value =  encrypt_data.Create_encprty(master_key, "nothing", encprtyed_data[1])
+
+    for x in range(len(data_value)):
+        new_data_valye.append(key.decrypt(data_value[x]).strip().decode("utf-8"))
+
+    if username == new_data_valye[0] and password == new_data_valye[1]:
+        dashboard.show_dashboard(username, master_key)
+    else:
+        print("There Is No Account With That Username/Password")
+        import start
+        start.login()
 
 def finding_the_key_and_data(file, master_key):
     Data_value = []
@@ -60,4 +61,3 @@ def getting_key(master_key, key_name):
 
 
 
-#decrypt_the_account("username", "password", "importing_files/Account.env", "Maxandbenjo12")
