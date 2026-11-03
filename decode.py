@@ -33,7 +33,7 @@ def decrypt_the_account(username, password, file, master_key):
     for x in range(len(data_value)):
         new_data_valye.append(key.decrypt(data_value[x]).strip().decode("utf-8"))
 
-    if username == new_data_valye[0] and password == new_data_valye[1]:
+    if username.lower() == new_data_valye[0].lower() and password.lower() == new_data_valye[1].lower():
         dashboard.show_dashboard(username, master_key)
     else:
         print("There Is No Account With That Username/Password")
